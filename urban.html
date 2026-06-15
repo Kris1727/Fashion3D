@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Style | Fashion3D</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Fashion3D</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+        </ul>
+    </nav>
+
+    <section class="catalog">
+        <h1>Urban Style</h1>
+        <div class="dress-grid">
+
+            <div class="catalog-card">
+                <img src="images/urban1.png" alt="Urban Fashion">
+                <h2>Modern Urban Fashion</h2>
+                <p>Modern streetwear collection.</p>
+                <button class="btn-constructor" onclick="openConstructor('t_shirt')">✏️ Open in Constructor</button>
+            </div>
+
+            <div class="catalog-card">
+                <img src="images/urban2.png" alt="Streetwear">
+                <h2>Global Streetwear Fusion</h2>
+                <p>Global fashion inspiration.</p>
+                <button class="btn-constructor" onclick="openConstructor('streetwear')">✏️ Open in Constructor</button>
+            </div>
+
+            <div class="catalog-card">
+                <img src="images/urban3.png" alt="Cable Knit">
+                <h2>Autumn Cable-Knit Look</h2>
+                <p>Cozy autumn casual style.</p>
+                <button class="btn-constructor" onclick="openConstructor('knit_top')">✏️ Open in Constructor</button>
+            </div>
+
+            <div class="catalog-card">
+                <img src="images/urban4.png" alt="Denim Style">
+                <h2>Everyday Denim Style</h2>
+                <p>Everyday denim fashion.</p>
+                <button class="btn-constructor" onclick="openConstructor('denim_jacket')">✏️ Open in Constructor</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function openConstructor(model) {
+            localStorage.setItem('selectedModel', model)
+            localStorage.setItem('selectedModelName', event.target.closest('.catalog-card').querySelector('h2').textContent)
+            window.location.href = 'constructor.html'
+        }
+    </script>
+</body>
+</html>

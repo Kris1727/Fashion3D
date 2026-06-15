@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor | Fashion3D</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Fashion3D</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+    </ul>
+</nav>
+
+<div class="con-breadcrumb">
+    <a href="catalog.html">← Catalog</a>
+    <span id="modelBreadcrumb"></span>
+</div>
+
+<div class="con-layout">
+
+    <!-- LEFT PANEL -->
+    <aside class="con-panel con-panel--left">
+
+        <div class="con-section">
+            <div class="con-section-title">🎨 Color</div>
+            <div class="color-swatches" id="colorSwatches"></div>
+            <input type="color" id="shirtColor" value="#ffffff" title="Custom color">
+        </div>
+
+        <div class="con-section">
+            <div class="con-section-title">📐 Size</div>
+            <div class="size-group">
+                <button class="size-btn" data-size="XS">XS</button>
+                <button class="size-btn" data-size="S">S</button>
+                <button class="size-btn active" data-size="M">M</button>
+                <button class="size-btn" data-size="L">L</button>
+                <button class="size-btn" data-size="XL">XL</button>
+                <button class="size-btn" data-size="XXL">XXL</button>
+            </div>
+        </div>
+
+        <div class="con-section">
+            <div class="con-section-title">🖼️ Add Image</div>
+            <label class="upload-btn" for="printUpload">
+                ⬆ Choose image
+                <input type="file" id="printUpload" accept="image/*" hidden>
+            </label>
+        </div>
+
+        <div class="con-section">
+            <div class="con-section-title">✍️ Add Text</div>
+            <input type="text" id="textInput" class="text-input" placeholder="Enter text...">
+            <div class="text-options">
+                <input type="color" id="textColor" value="#000000" title="Text color">
+                <select id="textFont" class="font-select">
+                    <option value="Arial">Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="'Courier New'">Courier New</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Verdana">Verdana</option>
+                </select>
+            </div>
+            <button id="addTextBtn" class="btn-primary" style="width:100%;margin-top:8px">➕ Add text</button>
+        </div>
+
+        <div class="con-section" id="printsListSection" style="display:none">
+            <div class="con-section-title">📋 Print elements</div>
+            <div id="printList"></div>
+        </div>
+
+        <div class="con-section">
+            <div class="con-section-title">🧵 Fabric</div>
+            <div class="fabric-grid" id="fabricGrid"></div>
+            <button id="resetTexture" class="btn-ghost" style="width:100%;margin-top:10px">✕ No fabric</button>
+        </div>
+
+    </aside>
+
+    <!-- CENTER -->
+    <div class="con-center">
+
+        <div class="mode-switcher">
+            <button class="msw-btn active" id="mswShirt">🌐 Rotate model</button>
+            <button class="msw-btn" id="mswPrint" style="display:none">✋ Move print</button>
+        </div>
+
+        <div id="modelMissingMsg" style="display:none" class="model-missing">
+            <div class="model-missing-inner">
+                <div style="font-size:48px">📦</div>
+                <h3 id="modelMissingName"></h3>
+                <p>3D model not added yet.<br>Place file <code id="modelMissingFile"></code> into the <code>glb/</code> folder.</p>
+            </div>
+        </div>
+
+        <div id="modelLoadingMsg" class="model-missing" style="display:none">
+            <div class="model-missing-inner">
+                <div class="spinner"></div>
+                <h3 id="loadingModelName"></h3>
+                <p>Loading 3D model...<br><span id="loadingProgress" style="color:#60a5fa;font-weight:700"></span></p>
+            </div>
+        </div>
+
+        <div id="scene-container"></div>
+
+        <div class="print-toolbar" id="printToolbar" style="display:none">
+            <button class="ptool-btn active" id="ptMove">✋ Move</button>
+            <button class="ptool-btn" id="ptScale">⇲ Scale</button>
+            <button class="ptool-btn" id="ptRotate">↻ Rotate</button>
+            <button class="ptool-btn ptool-danger" id="ptRemove">✕ Remove</button>
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <aside class="con-panel con-panel--right">
+
+        <div class="con-section">
+            <div class="con-section-title">📏 Print size</div>
+            <input type="range" id="printSize" min="0.1" max="3" step="0.05" value="1" class="slider">
+            <div class="slider-labels"><span>Smaller</span><span>Larger</span></div>
+        </div>
+
+        <div class="con-section">
+            <div class="con-section-title">ℹ️ Hint</div>
+            <div id="hintPanel" class="hint-panel">Choose a color or add an image / text</div>
+        </div>
+
+        <div class="con-section">
+            <button class="btn-ghost" id="savePreviewBtn" style="width:100%">💾 Save photo</button>
+        </div>
+
+    </aside>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

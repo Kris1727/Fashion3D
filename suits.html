@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suits Collection | Fashion3D</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Fashion3D</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+        </ul>
+    </nav>
+
+    <section class="catalog">
+        <h1>Suits Collection</h1>
+        <div class="dress-grid">
+
+            <!-- Business Style Suit: піджак + штани -->
+            <div class="catalog-card">
+                <img src="images/suit1.png" alt="Business Suit">
+                <h2>Business Style Suit</h2>
+                <p>Elegant business fashion.</p>
+                <div class="constructor-pair">
+                    <button class="btn-constructor btn-constructor--primary"
+                            onclick="openConstructor('business_blazer', 'Business Blazer')">
+                        🧥 Blazer Constructor
+                    </button>
+                    <button class="btn-constructor btn-constructor--secondary"
+                            onclick="openConstructor('business_trousers', 'Business Trousers')">
+                        👖 Trousers Constructor
+                    </button>
+                </div>
+            </div>
+
+            <!-- Classic Office Suit: сорочка + спідниця -->
+            <div class="catalog-card">
+                <img src="images/suit2.png" alt="Office Suit">
+                <h2>Classic Office Suit</h2>
+                <p>Modern office style.</p>
+                <div class="constructor-pair">
+                    <button class="btn-constructor btn-constructor--primary"
+                            onclick="openConstructor('office_shirt', 'Office Shirt')">
+                        👚 Shirt Constructor
+                    </button>
+                    <button class="btn-constructor btn-constructor--secondary"
+                            onclick="openConstructor('office_skirt', 'Office Skirt')">
+                        👗 Skirt Constructor
+                    </button>
+                </div>
+            </div>
+
+            <!-- Luxury Fashion Suit: комбінезон або жилет + широкі штани -->
+            <div class="catalog-card">
+                <img src="images/suit3.png" alt="Luxury Suit">
+                <h2>Luxury Fashion Suit</h2>
+                <p>Premium elegant suit.</p>
+                <div class="constructor-pair">
+                    <button class="btn-constructor btn-constructor--primary"
+                            onclick="openConstructor('luxury_jumpsuit', 'Luxury Jumpsuit')">
+                        🪡 Jumpsuit Constructor
+                    </button>
+                    <button class="btn-constructor btn-constructor--secondary"
+                            onclick="openConstructor('luxury_wideleg', 'Wide-Leg Trousers')">
+                        👖 Wide-Leg Constructor
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modern Formal Suit: жакетна сукня або жакет + пряма сукня -->
+            <div class="catalog-card">
+                <img src="images/suit4.png" alt="Formal Suit">
+                <h2>Modern Formal Suit</h2>
+                <p>Stylish formal outfit.</p>
+                <div class="constructor-pair">
+                    <button class="btn-constructor btn-constructor--primary"
+                            onclick="openConstructor('formal_jacket_dress', 'Jacket Dress')">
+                        🥻 Jacket Dress Constructor
+                    </button>
+                    <button class="btn-constructor btn-constructor--secondary"
+                            onclick="openConstructor('formal_sheath_dress', 'Sheath Dress')">
+                        👗 Sheath Dress Constructor
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function openConstructor(model, name) {
+            localStorage.setItem('selectedModel', model)
+            localStorage.setItem('selectedModelName', name)
+            window.location.href = 'constructor.html'
+        }
+    </script>
+</body>
+</html>

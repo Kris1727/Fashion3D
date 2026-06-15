@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dresses Collection | Fashion3D</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Fashion3D</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+        </ul>
+    </nav>
+
+    <section class="catalog">
+        <h1>Dresses Collection</h1>
+        <div class="dress-grid">
+
+            <div class="catalog-card">
+                <img src="images/casual.png" alt="Casual Dress">
+                <h2>Casual Dress</h2>
+                <p>Comfortable everyday linen dress.</p>
+                <button class="btn-constructor" onclick="openConstructor('casual_dress')">✏️ Open in Constructor</button>
+            </div>
+
+            <div class="catalog-card">
+                <img src="images/formal.png" alt="Formal Dress">
+                <h2>Formal Dress</h2>
+                <p>Elegant strapless European gown.</p>
+                <button class="btn-constructor" onclick="openConstructor('formal_dress')">✏️ Open in Constructor</button>
+            </div>
+
+            <div class="catalog-card">
+                <img src="images/evening.png" alt="Evening Dress">
+                <h2>Evening Dress</h2>
+                <p>Luxury evening outfit with leather details.</p>
+                <button class="btn-constructor" onclick="openConstructor('evening_dress')">✏️ Open in Constructor</button>
+            </div>
+
+            <div class="catalog-card">
+                <img src="images/summer.png" alt="Summer Dress">
+                <h2>Summer Dress</h2>
+                <p>Light cotton summer formal dress.</p>
+                <button class="btn-constructor" onclick="openConstructor('summer_dress')">✏️ Open in Constructor</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function openConstructor(model) {
+            localStorage.setItem('selectedModel', model)
+            localStorage.setItem('selectedModelName', event.target.closest('.catalog-card').querySelector('h2').textContent)
+            window.location.href = 'constructor.html'
+        }
+    </script>
+</body>
+</html>
